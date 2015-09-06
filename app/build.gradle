@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.xmlexample"
-        minSdkVersion 22
+        minSdkVersion 21
         targetSdkVersion 22
     }
 

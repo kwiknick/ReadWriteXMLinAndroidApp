@@ -18,7 +18,6 @@ import android.view.View;
 import android.widget.EditText;
 
 import org.xmlpull.v1.*;
-//This is a new comment to make sure the source control is working.
 
 public class MainActivity extends Activity {
 
@@ -75,7 +74,7 @@ public class MainActivity extends Activity {
                 serializer.setOutput(myFile, "UTF-8");
             }
         } catch (Exception e) {
-            Log.e("Exception::", e.getMessage());
+            Log.e("Exception: ", e.getMessage());
         }
     }
 
