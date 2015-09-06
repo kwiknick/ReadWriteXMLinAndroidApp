@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +32,7 @@ public class ReadActivity extends Activity {
         tv.setText("");
 
         // get the xml file
-        File filename = new File(getFilesDir(), "example.xml");
+        File filename = new File(getFilesDir(), "location.xml");
 
         // if the file exists, then read it
         if (filename.exists()) {
@@ -71,24 +70,30 @@ public class ReadActivity extends Activity {
                     // get the name of the start tag
                     currentTag = xpp.getName();
 
-                    if (currentTag.equals("Contact")) {
-                        tv.append("Contact " + ++counter + "\n");
+                    if (currentTag.equals("Location")) {
+                        tv.append("Treasure Location " + ++counter + "\n");
                         tv.append("-----------------------------------------\n");
-                    } else if (currentTag.equals("Name")) {
+                    } else if (currentTag.equals("Description")) {
                         currentElement = xpp.nextText();
-                        tv.append("Name:  " + currentElement + "\n");
-                    } else if (currentTag.equals("Address")) {
+                        tv.append("Description:  " + currentElement + "\n");
+                    } else if (currentTag.equals("Street")) {
                         currentElement = xpp.nextText();
-                        tv.append("Address:  " + currentElement + "\n");
-                    } else if (currentTag.equals("State")) {
+                        tv.append("Street:  " + currentElement + "\n");
+                    } else if (currentTag.equals("CityStateZip")) {
                         currentElement = xpp.nextText();
-                        tv.append("State:  " + currentElement + "\n");
+                        tv.append("City, State Zip:  " + currentElement + "\n");
+                    } else if (currentTag.equals("Clue 1")) {
+                        currentElement = xpp.nextText();
+                        tv.append("Clue #1:  " + currentElement + "\n");
+                    } else if (currentTag.equals("Clue 2")) {
+                        currentElement = xpp.nextText();
+                        tv.append("Clue #2:  " + currentElement + "\n");
                     }
                 } else if (eventType == XmlPullParser.END_TAG) {
                     currentTag = xpp.getName();
 
-                    if (currentTag.equals("Contact")) {
-                        tv.append("------------------------------------\n\n");
+                    if (currentTag.equals("Location")) {
+                        tv.append("----------------------------------------\n\n");
                     }
                 }
 
@@ -96,7 +101,7 @@ public class ReadActivity extends Activity {
                 eventType = xpp.next();
             }
         } catch (Exception e) {
-            Log.e("XMLExample", e.getMessage());
+            Log.e("ReadWriteXML", e.getMessage());
         }
     }
 

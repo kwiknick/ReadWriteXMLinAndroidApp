@@ -1,14 +1,7 @@
 package com.example.xmlexample;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
@@ -21,11 +14,13 @@ import org.xmlpull.v1.*;
 
 public class MainActivity extends Activity {
 
-    private EditText name;
-    private EditText address;
-    private EditText state;
+    private EditText description;
+    private EditText street;
+    private EditText cityStateZip;
+    private EditText clue1;
+    private EditText clue2;
 
-    FileOutputStream myFile;
+    FileOutputStream locationFile;
     XmlSerializer serializer;
 
     @Override
@@ -33,27 +28,33 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_xml);
 
-        name = (EditText) findViewById(R.id.editName);
-        name.setText("");
+        description = (EditText) findViewById(R.id.editDescription);
+        description.setText("");
 
-        address = (EditText) findViewById(R.id.editAddress);
-        address.setText("");
+        street = (EditText) findViewById(R.id.editStreet);
+        street.setText("");
 
-        state = (EditText) findViewById(R.id.editState);
-        state.setText("");
+        cityStateZip = (EditText) findViewById(R.id.editCityStateZip);
+        cityStateZip.setText("");
+
+        clue1 = (EditText) findViewById(R.id.editClue1);
+        clue1.setText("");
+
+        clue2 = (EditText) findViewById(R.id.editClue2);
+        clue2.setText("");
 
         // create the initial xml document if it already does not exist
         try {
-            File filename = new File(getFilesDir(), "example.xml");
+            File filename = new File(getFilesDir(), "location.xml");
 
             if (!filename.exists()) {
-                myFile = openFileOutput("example.xml", Activity.MODE_APPEND);
+                locationFile = openFileOutput("location.xml", Activity.MODE_APPEND);
 
                 // create a new XmlSerializer object 
                 serializer = Xml.newSerializer();
 
                 // use myFile as your xml serializer and set to UTF-8 encoding
-                serializer.setOutput(myFile, "UTF-8");
+                serializer.setOutput(locationFile, "UTF-8");
 
                 // Write <?xml declaration with encoding 
                 serializer.startDocument(null, Boolean.valueOf(true));
@@ -65,13 +66,13 @@ public class MainActivity extends Activity {
                 serializer.startTag(null, "AddressBook");
             } else {
                 // use myFile as your xml serializer and set to UTF-8 encoding
-                myFile = openFileOutput("example.xml", Activity.MODE_APPEND);
+                locationFile = openFileOutput("location.xml", Activity.MODE_APPEND);
 
                 // create a new XmlSerializer object 
                 serializer = Xml.newSerializer();
 
                 // use myFile as your xml serializer and set to UTF-8 encoding
-                serializer.setOutput(myFile, "UTF-8");
+                serializer.setOutput(locationFile, "UTF-8");
             }
         } catch (Exception e) {
             Log.e("Exception: ", e.getMessage());
@@ -92,27 +93,38 @@ public class MainActivity extends Activity {
             // this way, we don't need to add an end tag for outermost element
 
             // create tags and values
-            serializer.startTag(null, "Contact");
-            serializer.startTag(null, "Name");
-            serializer.text(name.getText().toString());  // retrieve name entered by user from text field
-            serializer.endTag(null, "Name");
+            serializer.startTag(null, "Location");
+            serializer.startTag(null, "Description");
+            serializer.text(description.getText().toString());  // retrieve name entered by user from text field
+            serializer.endTag(null, "Description");
 
-            serializer.startTag(null, "Address");
-            serializer.text(address.getText().toString());
-            serializer.endTag(null, "Address");
+            serializer.startTag(null, "Street");
+            serializer.text(street.getText().toString());
+            serializer.endTag(null, "Street");
 
-            serializer.startTag(null, "State");
-            serializer.text(state.getText().toString());
-            serializer.endTag(null, "State");
-            serializer.endTag(null, "Contact");
+            serializer.startTag(null, "CityStateZip");
+            serializer.text(cityStateZip.getText().toString());
+            serializer.endTag(null, "CityStateZip");
+
+            serializer.startTag(null, "Clue 1");
+            serializer.text(clue1.getText().toString());
+            serializer.endTag(null, "Clue 1");
+
+            serializer.startTag(null, "Clue 2");
+            serializer.text(clue2.getText().toString());
+            serializer.endTag(null, "Clue 2");
+
+            serializer.endTag(null, "Location");
 
             // perform the write by flushing
             serializer.flush();
 
             // clear the text fields
-            name.setText("");
-            address.setText("");
-            state.setText("");
+            description.setText("");
+            street.setText("");
+            cityStateZip.setText("");
+            clue1.setText("");
+            clue2.setText("");
         } catch (Exception e) {
             // use logcat to display errors
             Log.e("Exception::", e.getMessage());

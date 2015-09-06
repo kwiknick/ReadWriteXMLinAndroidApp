@@ -2,49 +2,56 @@
 
    	<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     	xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:scrollbarAlwaysDrawVerticalTrack="false"
-        tools:context=".CreateActivity" >
+        tools:context=".CreateActivity"
+        android:background="@drawable/map_background" >
 
         <TableRow
-            android:id="@+id/rowName"
-            android:layout_width="wrap_content"
+            android:id="@+id/row1"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/txtName"
+                android:id="@+id/descriptionLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:text="Name"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="10dp"
+                android:background="#ffffff"
+                android:backgroundTint="#64ffffff"
+                android:text="Description"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText
-                android:id="@+id/editName"
+                android:id="@+id/editDescription"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true" >
-
                 <requestFocus />
             </EditText>
         </TableRow>
 
         <TableRow
             android:id="@+id/row2"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/txtAddress"
+                android:id="@+id/streetLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Address"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="10dp"
+                android:background="#ffffff"
+                android:backgroundTint="#64ffffff"
+                android:text="Street"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText
-                android:id="@+id/editAddress"
-                android:layout_width="wrap_content"
+                android:id="@+id/editStreet"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:singleLine="true" />
@@ -52,35 +59,80 @@
 
         <TableRow
             android:id="@+id/row3"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/txtState"
+                android:id="@+id/cityStateZipLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="10dp"
+                android:background="#ffffff"
+                android:backgroundTint="#64ffffff"
                 android:text="City, State, Zip"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText
-                android:id="@+id/editState"
-                android:layout_width="wrap_content"
+                android:id="@+id/editCityStateZip"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:singleLine="true" />
         </TableRow>
 
-
         <TableRow
-            android:id="@+id/rowButtons"
-            android:layout_width="wrap_content"
+            android:id="@+id/row4"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 
-            <GridLayout
+            <TextView
+                android:id="@+id/clue1Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:columnCount="3" >
-            </GridLayout>
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="10dp"
+                android:background="#ffffff"
+                android:backgroundTint="#64ffffff"
+                android:text="First Clue"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/editClue1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:singleLine="true" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/clue2Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="10dp"
+                android:background="#ffffff"
+                android:backgroundTint="#64ffffff"
+                android:text="Second Clue"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/editClue2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:singleLine="true" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/saveButtonRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
 
             <Button
                 android:id="@+id/btnSave"
@@ -89,7 +141,11 @@
                 android:layout_weight="1"
                 android:minWidth="30dip"
                 android:onClick="onSaveButton"
-                android:text="Save" />
+                android:background="#B2B2B2"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:text="Save Location"
+                />
 
         </TableRow>
 

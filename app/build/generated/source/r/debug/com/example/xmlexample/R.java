@@ -16,23 +16,30 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int map_background=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000e;
-        public static final int btnSave=0x7f08000d;
+        public static final int action_settings=0x7f080014;
+        public static final int btnSave=0x7f080013;
         public static final int button1=0x7f080001;
         public static final int button2=0x7f080000;
-        public static final int editAddress=0x7f080008;
-        public static final int editName=0x7f080005;
-        public static final int editState=0x7f08000b;
+        public static final int cityStateZipLabel=0x7f08000a;
+        public static final int clue1Label=0x7f08000d;
+        public static final int clue2Label=0x7f080010;
+        public static final int descriptionLabel=0x7f080004;
+        public static final int editCityStateZip=0x7f08000b;
+        public static final int editClue1=0x7f08000e;
+        public static final int editClue2=0x7f080011;
+        public static final int editDescription=0x7f080005;
+        public static final int editStreet=0x7f080008;
+        public static final int row1=0x7f080003;
         public static final int row2=0x7f080006;
         public static final int row3=0x7f080009;
-        public static final int rowButtons=0x7f08000c;
-        public static final int rowName=0x7f080003;
+        public static final int row4=0x7f08000c;
+        public static final int row5=0x7f08000f;
+        public static final int saveButtonRow=0x7f080012;
+        public static final int streetLabel=0x7f080007;
         public static final int textView1=0x7f080002;
-        public static final int txtAddress=0x7f080007;
-        public static final int txtName=0x7f080004;
-        public static final int txtState=0x7f08000a;
     }
     public static final class layout {
         public static final int activity_menu=0x7f030000;
