@@ -63,7 +63,7 @@ public class MainActivity extends Activity {
                 serializer.setFeature("http://xmlpull.org/v1/doc/features.html#indent-output", true);
 
                 // start a new top level tag and other tags
-                serializer.startTag(null, "AddressBook");
+                serializer.startTag(null, "Location");
             } else {
                 // use myFile as your xml serializer and set to UTF-8 encoding
                 locationFile = openFileOutput("location.xml", Activity.MODE_APPEND);
@@ -127,7 +127,7 @@ public class MainActivity extends Activity {
             clue2.setText("");
         } catch (Exception e) {
             // use logcat to display errors
-            Log.e("Exception::", e.getMessage());
+            Log.e("Exception: ", e.getMessage());
         }
     }
 }
